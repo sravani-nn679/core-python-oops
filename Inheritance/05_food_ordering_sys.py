@@ -22,9 +22,15 @@ class FoodCourt(Restaurant):
         self.display_menu()
         total=0
         n=int(input("enter no of items:"))
-        for i in range(n):
+        i=0
+        while i<n:
             item=input("enter item name:")
-            total=total+self.menu(item)
+            prize=self.menu(item)
+            if prize==0:
+                print("invalid item")
+            else:
+                total=total+prize
+                i+=1
         self.billing(total)
 class Customer(FoodCourt):
     pass

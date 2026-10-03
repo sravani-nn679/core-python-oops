@@ -21,9 +21,15 @@ class Booking(Movie):
         self.movie()
         total=0
         n=int(input("enter no of tickets:"))
-        for i in range(n):
+        i=0
+        while i<n:
             movie=input("enter movie name:")
-            total=total+self.ticket(movie)
+            prize=self.ticket(movie)
+            if prize==0:
+                print("invalid movie")
+            else:
+                total=total+prize
+                i+=1
         self.billing(total)
 class Customer(Booking):
     pass
