@@ -1,23 +1,29 @@
 #multilevel Inheritance
 class Restaurant:
     def menu(self,item):
+        item=item.lower()
         if item=="biryani":
             return 250
         elif item=="pizza":
             return 300
+        else:
+            return 0
 class FoodCourt(Restaurant):
     def display_menu(self):
         print("biryani-250")
         print("pizza-300")
     def billing(self, total):
-        final=total+20 #packing prize 20
-        print(final)
+        if total==0:
+            print("Invalid item")
+        else:
+            final=total+20 #packing prize 20
+            print(final)
     def order(self):
         self.display_menu()
         total=0
-        n=int(input())
+        n=int(input("enter no of items:"))
         for i in range(n):
-            item=input()
+            item=input("enter item name:")
             total=total+self.menu(item)
         self.billing(total)
 class Customer(FoodCourt):
