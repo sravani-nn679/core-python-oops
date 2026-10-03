@@ -4,7 +4,7 @@ class Employee:
         self.salary=salary
     def display_details(self):
         print(f"employee name: {self.name}")
-        print(f"empoyee salary: {self.salary}")
+        print(f"employee salary: {self.salary}")
 class Manager(Employee):
     def __init__(self,name,salary,bonus):
         super().__init__(name,salary)
